@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,14 @@
 		61473D41244491E200B98F0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61473D40244491E200B98F0A /* Assets.xcassets */; };
 		61473D44244491E200B98F0A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61473D43244491E200B98F0A /* Preview Assets.xcassets */; };
 		61473D47244491E200B98F0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61473D45244491E200B98F0A /* LaunchScreen.storyboard */; };
+		61473D502444922A00B98F0A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 61473D4F2444922A00B98F0A /* RxSwift */; };
+		61473D532444924E00B98F0A /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 61473D522444924E00B98F0A /* KingfisherSwiftUI */; };
+		61473D562444928B00B98F0A /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61473D552444928B00B98F0A /* MovieRepository.swift */; };
+		61473D59244492CB00B98F0A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 61473D58244492CB00B98F0A /* Alamofire */; };
+		61473D5B2444930F00B98F0A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61473D5A2444930F00B98F0A /* Models.swift */; };
+		61473D5D2444943000B98F0A /* SearchPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61473D5C2444943000B98F0A /* SearchPageView.swift */; };
+		61473D5F2444945000B98F0A /* SearchPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61473D5E2444945000B98F0A /* SearchPageViewModel.swift */; };
+		61473D62244494A100B98F0A /* MovieViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61473D61244494A100B98F0A /* MovieViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,11 @@
 		61473D43244491E200B98F0A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		61473D46244491E200B98F0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		61473D48244491E200B98F0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61473D552444928B00B98F0A /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
+		61473D5A2444930F00B98F0A /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		61473D5C2444943000B98F0A /* SearchPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageView.swift; sourceTree = "<group>"; };
+		61473D5E2444945000B98F0A /* SearchPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewModel.swift; sourceTree = "<group>"; };
+		61473D61244494A100B98F0A /* MovieViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +44,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61473D59244492CB00B98F0A /* Alamofire in Frameworks */,
+				61473D532444924E00B98F0A /* KingfisherSwiftUI in Frameworks */,
+				61473D502444922A00B98F0A /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +72,8 @@
 		61473D39244491E000B98F0A /* MovieSearch */ = {
 			isa = PBXGroup;
 			children = (
+				61473D602444949000B98F0A /* ui */,
+				61473D542444926500B98F0A /* search */,
 				61473D3A244491E000B98F0A /* AppDelegate.swift */,
 				61473D3C244491E000B98F0A /* SceneDelegate.swift */,
 				61473D3E244491E000B98F0A /* ContentView.swift */,
@@ -75,6 +93,25 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		61473D542444926500B98F0A /* search */ = {
+			isa = PBXGroup;
+			children = (
+				61473D552444928B00B98F0A /* MovieRepository.swift */,
+				61473D5A2444930F00B98F0A /* Models.swift */,
+				61473D5C2444943000B98F0A /* SearchPageView.swift */,
+				61473D5E2444945000B98F0A /* SearchPageViewModel.swift */,
+			);
+			path = search;
+			sourceTree = "<group>";
+		};
+		61473D602444949000B98F0A /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				61473D61244494A100B98F0A /* MovieViews.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -91,6 +128,11 @@
 			dependencies = (
 			);
 			name = MovieSearch;
+			packageProductDependencies = (
+				61473D4F2444922A00B98F0A /* RxSwift */,
+				61473D522444924E00B98F0A /* KingfisherSwiftUI */,
+				61473D58244492CB00B98F0A /* Alamofire */,
+			);
 			productName = MovieSearch;
 			productReference = 61473D37244491E000B98F0A /* MovieSearch.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +161,11 @@
 				Base,
 			);
 			mainGroup = 61473D2E244491E000B98F0A;
+			packageReferences = (
+				61473D4E2444922A00B98F0A /* XCRemoteSwiftPackageReference "RxSwift" */,
+				61473D512444924E00B98F0A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				61473D57244492CB00B98F0A /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 61473D38244491E000B98F0A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -146,9 +193,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61473D562444928B00B98F0A /* MovieRepository.swift in Sources */,
+				61473D62244494A100B98F0A /* MovieViews.swift in Sources */,
+				61473D5D2444943000B98F0A /* SearchPageView.swift in Sources */,
+				61473D5F2444945000B98F0A /* SearchPageViewModel.swift in Sources */,
 				61473D3B244491E000B98F0A /* AppDelegate.swift in Sources */,
 				61473D3D244491E000B98F0A /* SceneDelegate.swift in Sources */,
 				61473D3F244491E000B98F0A /* ContentView.swift in Sources */,
+				61473D5B2444930F00B98F0A /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +394,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		61473D4E2444922A00B98F0A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+		61473D512444924E00B98F0A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.13.4;
+			};
+		};
+		61473D57244492CB00B98F0A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		61473D4F2444922A00B98F0A /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61473D4E2444922A00B98F0A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		61473D522444924E00B98F0A /* KingfisherSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61473D512444924E00B98F0A /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherSwiftUI;
+		};
+		61473D58244492CB00B98F0A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61473D57244492CB00B98F0A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 61473D2F244491E000B98F0A /* Project object */;
 }
