@@ -9,7 +9,12 @@
 import Foundation
 import RxSwift
 
-class SearchPageViewModel : ObservableObject {
+class SearchPageViewModel : ObservableObject, MovieUIDelegate {
+    
+    func movieClick(text: String) {
+        print("text is \(text)")
+    }
+    
     
     @Published var uiState: SearchPageState = .Init
     
@@ -17,9 +22,13 @@ class SearchPageViewModel : ObservableObject {
     
     let repository: MovieRepository = MovieRepository()
     
+    var uiModels: [UIComponent] = []
+    
     func loadMovies(query: String) {
         
+        uiModels.append(LoadingUIComponent(message: "Loading for \(query)"))
         self.uiState = .Loading("Loading for \(query)")
+        
         repository
             .searchMovies(query: query)
             .subscribe(
@@ -27,6 +36,7 @@ class SearchPageViewModel : ObservableObject {
                     debugPrint(response)
                     
                     if response.results.count == 0 {
+                        self?.uiModels.append(NoResultsUIComponent())
                         self?.uiState = .NoResultsFound
                     } else {
                         self?.uiState = .Fetched(response)
