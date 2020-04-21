@@ -31,32 +31,26 @@ struct SearchPageView: View, MovieUIDelegate {
             })
             .textFieldStyle(RoundedBorderTextFieldStyle())
             
-            VStack {
-                ForEach(vm.uiModels, id: \.uniqueId) { uiComponent in
-                    uiComponent.render(uiDelegate: self as UIDelegate)
+            Group { () -> AnyView in
+
+                switch vm.uiState {
+
+                case .Init:
+                    return AnyView(Text("Please type in to query"))
+
+                case .Loading(let message):
+                    return AnyView(Text(message))
+
+                case .Fetched(let moviesResult):
+                    return AnyView(SearchedMoviesView(movieResult: moviesResult))
+
+                case .NoResultsFound:
+                    return AnyView(Text("No matching movies found"))
+
+                case .ApiError(let errorMessage):
+                    return AnyView(Text(errorMessage))
                 }
             }
-            
-//            Group { () -> AnyView in
-//
-//                switch vm.uiState {
-//
-//                case .Init:
-//                    return AnyView(Text("Please type in to query"))
-//
-//                case .Loading(let message):
-//                    return AnyView(Text(message))
-//
-//                case .Fetched(let moviesResult):
-//                    return AnyView(SearchedMoviesView(movieResult: moviesResult))
-//
-//                case .NoResultsFound:
-//                    return AnyView(Text("No matching movies found"))
-//
-//                case .ApiError(let errorMessage):
-//                    return AnyView(Text(errorMessage))
-//                }
-//            }
         }
     }
 }
