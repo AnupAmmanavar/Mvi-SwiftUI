@@ -42,11 +42,7 @@ struct SearchPageView: View, MovieUIDelegate {
                     return Text(message).toAny()
 
                 case .Fetched(let uiComponents):
-                    return VStack {
-                        ForEach(uiComponents, id: \.uniqueId) { uiComponent in
-                            uiComponent.render(uiDelegate: self)
-                        }
-                    }.toAny()
+                    return renderPage(ui: uiComponents, uiDelegate: self)
 
                 case .NoResultsFound:
                     return Text("No matching movies found").toAny()

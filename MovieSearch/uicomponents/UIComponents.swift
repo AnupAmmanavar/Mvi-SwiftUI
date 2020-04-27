@@ -18,7 +18,7 @@ protocol UIComponent {
 }
 
 
-func render<UI: UIComponent>(ui: [UI], uiDelegate: UIDelegate) -> AnyView {
+func renderPage(ui: [UIComponent], uiDelegate: UIDelegate) -> AnyView {
      return AnyView(VStack {
          ForEach(ui, id: \.uniqueId) { uiComponent in
              uiComponent.render(uiDelegate: uiDelegate)
