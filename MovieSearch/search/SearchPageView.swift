@@ -39,10 +39,14 @@ struct SearchPageView: View, MovieUIDelegate {
                     return AnyView(Text("Please type in to query"))
 
                 case .Loading(let message):
-                    return AnyView(Text(message))
+                    return Text(message).toAny()
 
-                case .Fetched(let moviesResult):
-                    return AnyView(SearchedMoviesView(movieResult: moviesResult))
+                case .Fetched(let uiComponents):
+                    return AnyView(VStack {
+                        ForEach(uiComponents, id: \.uniqueId) { uiComponent in
+                            uiComponent.render(uiDelegate: self)
+                        }
+                    })
 
                 case .NoResultsFound:
                     return AnyView(Text("No matching movies found"))

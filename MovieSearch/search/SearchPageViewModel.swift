@@ -36,7 +36,10 @@ class SearchPageViewModel : ObservableObject, MovieUIDelegate {
                     if response.results.count == 0 {
                         self?.uiState = .NoResultsFound
                     } else {
-                        self?.uiState = .Fetched(response)
+                        var uiComponents : [UIComponent] = []
+                        let searchedMovieUIComponent = SearchedMoviesUIComponent(moviesResult: response)
+                        uiComponents.append(searchedMovieUIComponent)
+                        self?.uiState = .Fetched(uiComponents)
                     }
                     
                 },
@@ -52,7 +55,7 @@ class SearchPageViewModel : ObservableObject, MovieUIDelegate {
 enum SearchPageState {
     case Init
     case Loading(String)
-    case Fetched(MoviesResult)
+    case Fetched([UIComponent])
     case NoResultsFound
     case ApiError(String)
 }

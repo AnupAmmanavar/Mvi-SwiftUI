@@ -40,12 +40,12 @@ class MovieRepository {
             return Disposables.create()
         }
         observable
-        .observeOn(MainScheduler.instance)
+            .observeOn(MainScheduler.instance)
         
         return observable
     }
     
     func searchMovies(query: String) -> Observable<MoviesResult> {
-        return createRequest(url: "https://api.themoviedb.org/3/search/movie?api_key=1d9b898a212ea52e283351e521e17871&query=\(query)")
+        return createRequest(url: "https://api.themoviedb.org/3/search/movie?api_key=02e40a2424558958a9d91847362b03ae&query=\(query)")
     }
 }
