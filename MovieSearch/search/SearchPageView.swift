@@ -36,23 +36,23 @@ struct SearchPageView: View, MovieUIDelegate {
                 switch vm.uiState {
 
                 case .Init:
-                    return AnyView(Text("Please type in to query"))
+                    return Text("Please type in to query").toAny()
 
                 case .Loading(let message):
                     return Text(message).toAny()
 
                 case .Fetched(let uiComponents):
-                    return AnyView(VStack {
+                    return VStack {
                         ForEach(uiComponents, id: \.uniqueId) { uiComponent in
                             uiComponent.render(uiDelegate: self)
                         }
-                    })
+                    }.toAny()
 
                 case .NoResultsFound:
-                    return AnyView(Text("No matching movies found"))
+                    return Text("No matching movies found").toAny()
 
                 case .ApiError(let errorMessage):
-                    return AnyView(Text(errorMessage))
+                    return Text(errorMessage).toAny()
                 }
             }
         }
